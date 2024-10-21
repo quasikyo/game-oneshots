@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://djbortgurvgkq"]
+
+[ext_resource type="Script" path="res://scenes/zones/Accelerator.cs" id="1_lsfxm"]
+
+[sub_resource type="Gradient" id="Gradient_em00j"]
+offsets = PackedFloat32Array(0.606557, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_banis"]
+gradient = SubResource("Gradient_em00j")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p2vcx"]
+size = Vector2(62.4762, 64)
+
+[node name="Accelerator" type="PointLight2D"]
+scale = Vector2(6.9375, 2.6875)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_banis")
+script = ExtResource("1_lsfxm")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_p2vcx")
